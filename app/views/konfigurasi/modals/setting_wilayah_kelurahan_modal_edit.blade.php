@@ -1,5 +1,7 @@
 <div class="modal" ng-show={{ $modal_name }}> 
 
+  <form target="target_edit" method="post" action="{{ URL::to('konfigurasi/setting_wilayah/kelurahan/edit') }}">
+
     <div class="modal-container large">
         <div class="modal-header update">
             <h2>Edit Kelurahan</h2><a class="button-close" href ng-click="close_modal('modal_edit')">x</a>
@@ -34,14 +36,17 @@
                             </div>
                             <div class="tab-content-form">
                                 <div class="content-form-label">Kecamatan</div>
-                                    <select name="kabupaten">
+                                    <select name="kecamatan">
                                         <option ng-repeat="okec in opsi_kec"  ng-if="okec.selected == true" selected value="@{{ okec.id }}" >@{{ okec.n_kecamatan }}</option>
                                         <option ng-repeat="okec in opsi_kec"  ng-if="okec.selected == false" value="@{{ okec.id }}" >@{{ okec.n_kecamatan }}</option>
                                     </select>
                             </div>
                             <div class="tab-content-form">
                                 <div class="content-form-label">Nama Kelurahan</div>
-                                <div class="content-form-input"><input type="text" value="@{{ kelurahan_edit_data.n_kelurahan }}" /></div>
+                                <input type="hidden" name="id" value="@{{ kelurahan_edit_data.id }}"/>
+                                <div class="content-form-input">
+                                    <input type="text" name="n_kelurahan" value="@{{ kelurahan_edit_data.n_kelurahan }}" />
+                                </div>
                             </div>
                             
                         </div>
@@ -55,16 +60,20 @@
                 </div>
             </div>
 
+        </form>
+
         </div>
         <div class="modal-footer">
             <div class="modal-footer-left">
                 &nbsp;
             </div>
             <div class="modal-footer-right">
-                <input type="submit" value="Simpan" class="btn button-green" ng-click="close_modal('modal_edit')"></button>
+                <input type="submit" value="Simpan" class="btn button-green" ng-click="modal_edit_submit('modal_edit')"></button>
                 <a class="btn button-red" ng-click="close_modal('modal_edit')" >Batal</a>
             </div>
         </div>
+
+        <iframe src="#" id="target_edit" name="target_edit" style="width:0; height:0; visibility:hidden; position:relative; background:#fff;"></iframe>
 
     </div>
 </div>

@@ -37,6 +37,7 @@
 		}
 
 		public static function insert_data($data) {
+			
 			Trkabupaten::create($data);
 			$id_kabupaten = Trkabupaten::
 			where('n_kabupaten', '=', $data['n_kabupaten'])

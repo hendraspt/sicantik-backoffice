@@ -402,9 +402,9 @@ Route::get('konfigurasi/setting_wilayah/kabupaten', ['as' => 'konfigurasi_settin
 
 Route::get('konfigurasi/setting_wilayah/kabupaten/data', ['as' => 'konfigurasi_setting_wilayah_kabupaten', 'uses' => 'KonfigurasiController@setting_wilayah_kabupaten_data']);
 
-Route::get('konfigurasi/setting_wilayah/kabupaten/insert', ['as' => 'konfigurasi_setting_wilayah_kabupaten', 'uses' => 'KonfigurasiController@setting_wilayah_kabupaten_insert']);
+Route::post('konfigurasi/setting_wilayah/kabupaten/insert', ['uses' => 'KonfigurasiController@setting_wilayah_kabupaten_insert']);
 
-Route::get('konfigurasi/setting_wilayah/kabupaten/edit', ['as' => 'konfigurasi_setting_wilayah_kabupaten_edit', 'uses' => 'KonfigurasiController@setting_wilayah_kabupaten_edit']);
+Route::post('konfigurasi/setting_wilayah/kabupaten/edit', ['uses' => 'KonfigurasiController@setting_wilayah_kabupaten_edit']);
 
 Route::get('konfigurasi/setting_wilayah/kabupaten/edit/data/{id}', ['as' => 'konfigurasi_setting_wilayah_kabupaten_edit_data', 'uses' => 'KonfigurasiController@setting_wilayah_kabupaten_edit_data']);
 
@@ -420,9 +420,9 @@ Route::get('konfigurasi/setting_wilayah/kecamatan', ['as' => 'konfigurasi_settin
 
 Route::get('konfigurasi/setting_wilayah/kecamatan/data', ['as' => 'konfigurasi_setting_wilayah_kecamatan', 'uses' => 'KonfigurasiController@setting_wilayah_kecamatan_data']);
 
-Route::get('konfigurasi/setting_wilayah/kecamatan/insert', ['as' => 'konfigurasi_setting_wilayah_kecamatan', 'uses' => 'KonfigurasiController@setting_wilayah_kecamatan_insert']);
+Route::post('konfigurasi/setting_wilayah/kecamatan/insert', ['uses' => 'KonfigurasiController@setting_wilayah_kecamatan_insert']);
 
-Route::get('konfigurasi/setting_wilayah/kecamatan/edit', ['as' => 'konfigurasi_setting_wilayah_kecamatan_edit', 'uses' => 'KonfigurasiController@setting_wilayah_kecamatan_edit']);
+Route::post('konfigurasi/setting_wilayah/kecamatan/edit', ['uses' => 'KonfigurasiController@setting_wilayah_kecamatan_edit']);
 
 Route::get('konfigurasi/setting_wilayah/kecamatan/edit/data/{id}', ['as' => 'konfigurasi_setting_wilayah_kecamatan_edit_data', 'uses' => 'KonfigurasiController@setting_wilayah_kecamatan_edit_data']);
 
@@ -444,9 +444,9 @@ Route::get('konfigurasi/setting_wilayah/kelurahan', ['as' => 'konfigurasi_settin
 
 Route::get('konfigurasi/setting_wilayah/kelurahan/data', ['as' => 'konfigurasi_setting_wilayah_kelurahan', 'uses' => 'KonfigurasiController@setting_wilayah_kelurahan_data']);
 
-Route::get('konfigurasi/setting_wilayah/kelurahan/insert', ['as' => 'konfigurasi_setting_wilayah_kelurahan', 'uses' => 'KonfigurasiController@setting_wilayah_kelurahan_insert']);
+Route::post('konfigurasi/setting_wilayah/kelurahan/insert', ['uses' => 'KonfigurasiController@setting_wilayah_kelurahan_insert']);
 
-Route::get('konfigurasi/setting_wilayah/kelurahan/edit', ['as' => 'konfigurasi_setting_wilayah_kelurahan_edit', 'uses' => 'KonfigurasiController@setting_wilayah_kelurahan_edit']);
+Route::post('konfigurasi/setting_wilayah/kelurahan/edit', ['uses' => 'KonfigurasiController@setting_wilayah_kelurahan_edit']);
 
 Route::get('konfigurasi/setting_wilayah/kelurahan/edit/data/{id}', ['as' => 'konfigurasi_setting_wilayah_kelurahan_edit_data', 'uses' => 'KonfigurasiController@setting_wilayah_kelurahan_edit_data']);
 

@@ -385,7 +385,7 @@
 
 		public function setting_wilayah_provinsi_edit() {
 			Trpropinsi::where('id', '=', Input::get('id'))->update(['n_propinsi' => Input::get('n_propinsi')]);
-
+			echo 'isi';
 		}
 
 		public function setting_wilayah_provinsi_edit_data($id) {
@@ -421,20 +421,19 @@
 		public function setting_wilayah_kabupaten_insert() {
 
 			$trpropinsi_id = Input::get('trpropinsi_id');
-
 			$data = [
-			$n_kabupaten = Input::get('n_kabupaten'),
-			$ibukota = Input::get('ibukota')
-			];
-			
+				'n_kabupaten' => Input::get('n_kabupaten'),
+				'ibukota' => Input::get('ibukota')
+			];		
 			$trkabupaten_id = Trkabupaten::insert_data($data);
 			TrkabupatenTrpropinsi::insert_data($trkabupaten_id, $trpropinsi_id);
-
-
 		}
 
 		public function setting_wilayah_kabupaten_edit() {
 
+			Trkabupaten::where('id', '=', Input::get('id'))->update(['n_kabupaten' => Input::get('n_kabupaten'), 'ibukota' => Input::get('ibukota')]);
+			TrkabupatenTrpropinsi::where('trkabupaten_id', '=', Input::get('id'))->update( ['trpropinsi_id'=> Input::get('propinsi')] );
+			echo 'isi';
 		}
 
 		public function setting_wilayah_kabupaten_edit_data($id) {
@@ -498,9 +497,21 @@
 
 		public function setting_wilayah_kecamatan_insert() {
 
+			$trpropinsi_id = Input::get('trpropinsi_id');
+			$trkabupaten_id = Input::get('trkabupaten_id');
+			$n_kecamatan = Input::get('n_kecamatan');
+
+			$trkecamatan_id = Trkecamatan::insert_data($n_kecamatan);
+			TrkabupatenTrkecamatan::insert_data($trkabupaten_id, $trkecamatan_id);
+
 		}
 
 		public function setting_wilayah_kecamatan_edit() {
+			Trkecamatan::where('id', '=', Input::get('id'))->update(['n_kecamatan' => Input::get('n_kecamatan')]);
+			TrkabupatenTrpropinsi::where('trkabupaten_id', '=', Input::get('id'))->update( ['trpropinsi_id'=> Input::get('propinsi')] );
+			TrkabupatenTrkecamatan::where('trkecamatan_id', '=', Input::get('id'))->update( ['trkabupaten_id'=> Input::get('kabupaten')]);
+			
+			echo 'isi';
 
 		}
 
@@ -600,9 +611,24 @@
 
 		public function setting_wilayah_kelurahan_insert() {
 
+			$trpropinsi_id = Input::get('trpropinsi_id');
+			$trkabupaten_id = Input::get('trkabupaten_id');
+			$trkecamatan_id = Input::get('trkecamatan_id');
+			$n_kelurahan = Input::get('n_kelurahan');
+
+			$trkelurahan_id = Trkelurahan::insert_data($n_kelurahan);			
+			TrkecamatanTrkelurahan::insert_data($trkecamatan_id, $trkelurahan_id);
+
 		}
 
 		public function setting_wilayah_kelurahan_edit() {
+
+			Trkelurahan::where('id', '=', Input::get('id'))->update(['n_kelurahan' => Input::get('n_kelurahan')]);
+			TrkabupatenTrpropinsi::where('trkabupaten_id', '=', Input::get('id'))->update( ['trpropinsi_id'=> Input::get('propinsi')] );
+			TrkabupatenTrkecamatan::where('trkecamatan_id', '=', Input::get('id'))->update( ['trkabupaten_id'=> Input::get('kabupaten')]);
+			TrkecamatanTrkelurahan::where('trkelurahan_id', '=', Input::get('id'))->update( ['trkecamatan_id'=> Input::get('kecamatan')]);
+			
+			echo 'isi';
 
 		}
 

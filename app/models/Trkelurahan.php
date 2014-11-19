@@ -9,6 +9,14 @@ class Trkelurahan extends BaseModel {
 		return Trkelurahan::get();
 	}
 
+	public static function insert_data($n_kelurahan) {
+			Trkelurahan::create(['n_kelurahan' => $n_kelurahan]);
+			$id_kelurahan = Trkelurahan::where('n_kelurahan', '=', $n_kelurahan) -> get();
+			foreach ($id_kelurahan -> lists('id') as $key => $value) {
+				return $value;
+	}
+}
+
 	public static function fetch_with_kecamatan_kabupaten_propinsi() {
 		return DB::table('trkelurahan')
 		->join('trkecamatan_trkelurahan', 'trkelurahan.id', '=', 'trkecamatan_trkelurahan.trkelurahan_id')

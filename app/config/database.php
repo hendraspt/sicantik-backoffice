@@ -55,11 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-<<<<<<< HEAD
+
 			'database'  => 'agam',
-=======
-			'database'  => 'backoffice',
->>>>>>> origin/master
+
 			//'database'  => 'agamaja',
 			'username'  => 'root',
 			'password'  => '',

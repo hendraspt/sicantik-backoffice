@@ -1,5 +1,7 @@
 <div class="modal" ng-show={{ $modal_name }}> 
 
+    <form  target="target_insert" method="post" action="{{ URL::to('konfigurasi/setting_wilayah/kelurahan/insert') }}">
+
     <div class="modal-container large">
         <div class="modal-header update">
             <h2>Tambah Kelurahan</h2><a class="button-close" href ng-click="close_modal('modal_tambah')">x</a>
@@ -20,20 +22,20 @@
 
                             <div class="tab-content-form">
                                 <div class="content-form-label">Provinsi</div>
-                                    <select name="id" ng-model="propinsi_id" ng-options="prop.n_propinsi for prop in propinsi_data track by prop.id">
+                                    <select name="trpropinsi_id" ng-model="propinsi_id" ng-options="prop.n_propinsi for prop in propinsi_data track by prop.id">
                                         <option value="">Pilih Propinsi</option>
                                     </select>
                             </div>
                             <div class="tab-content-form">
                                 <div class="content-form-label">Kabupaten</div>
-                                    <select name="id" ng-model="kabupaten_id" ng-options="kab.n_kabupaten for kab in kabupaten_data track by kab.id">
+                                    <select name="trkabupaten_id" ng-model="kabupaten_id" ng-options="kab.n_kabupaten for kab in kabupaten_data track by kab.id">
                                         <option value="">Pilih Kabupaten</option>
 
                                     </select>
                             </div>
                             <div class="tab-content-form">
                                 <div class="content-form-label">Kecamatan</div>
-                                    <select name="id" ng-model="kecamatan_id" ng-options="kec.n_kecamatan for kec in kecamatan_data track by kec.id">
+                                    <select name="trkecamatan_id" ng-model="kecamatan_id" ng-options="kec.n_kecamatan for kec in kecamatan_data track by kec.id">
                                         <option value="">Pilih Kecamatan</option>
                                     </select>
                             </div>
@@ -60,10 +62,15 @@
             </div>
 
             <div class="modal-footer-right">
-                <input type="submit" value="Simpan" class="btn button-green" ng-click="close_modal('modal_edit')"></button>
+                <input type="submit" value="Simpan" class="btn button-green" ng-click="close_modal('modal_tambah')"></button>
                 <a class="btn button-red" ng-click="close_modal('modal_tambah')">Batal</a>
             </div>
         </div>
+
+         </form>
+
+    <iframe src="#" id="target_insert" name="target_insert" style="width:0; height:0; visibility:hidden; position:relative; background:#fff;"></iframe>
+
 
     </div>
 </div>

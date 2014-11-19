@@ -48,11 +48,13 @@
 			<div class="form-item">
 				&nbsp
 			</div>
-			<div class="form-item wide">
-				<input type="text" placeholder="Search Key">
-			</div>
+
 			<div class="form-item">
-				<input type="submit" value="Search">
+				&nbsp
+			</div>
+
+			<div class="form-item wide">
+				<input type="text" placeholder="Kata Kunci" ng-model="search[opsi_cari]">
 			</div>
 		</div>
 	</form>

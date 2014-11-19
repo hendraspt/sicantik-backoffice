@@ -462,9 +462,13 @@ $app = angular.module('sicantik_backoffice', [])
 
 .controller('KonfigurasiSettingWilayahKabupaten', ['$scope', '$http', 
 	function ($scope, $http) {
-		$http.get('kabupaten/data').success(function(swk_data) {
-			$scope.setting_wilayah_kabupaten = swk_data;
-		});
+		$scope.show_all = function() {
+			$http.get('kabupaten/data').success(function(swk_data) {
+				$scope.setting_wilayah_kabupaten = swk_data;
+			});
+		}
+
+		$scope.show_all();
 
 		/* # Filter Data ============================================================================================== */
 
@@ -491,7 +495,15 @@ $app = angular.module('sicantik_backoffice', [])
 		}
 
 		$scope.close_modal = function(modal_name) {
+
+			$scope.show_all();
+
+			setTimeout(function() {
+				$scope.show_all();
+			}, 100);
+
 			eval("$scope." + modal_name + "= false");
+
 		}
 
 		/* Prepare Opsi */
@@ -511,6 +523,13 @@ $app = angular.module('sicantik_backoffice', [])
 			});
 		}
 
+		$scope.modal_edit_submit = function(modal_name){
+
+			$scope.show_all();
+			$scope.close_modal(modal_name);
+
+		}
+
 		/* Define Tab Name */
 
 		$scope.get_propinsi = function() {
@@ -525,9 +544,13 @@ $app = angular.module('sicantik_backoffice', [])
 
 .controller('KonfigurasiSettingWilayahKecamatanCtrl', ['$scope', '$http', 
 	function ($scope, $http){
-		$http.get('kecamatan/data').success(function(swkc_data){
-			$scope.setting_wilayah_kecamatan = swkc_data;
-		});
+		$scope.show_all = function() {
+			$http.get('kecamatan/data').success(function(swkc_data){
+				$scope.setting_wilayah_kecamatan = swkc_data;
+			});
+		}
+
+		$scope.show_all();
 
 		/* # Filter Data ============================================================================================== */
 
@@ -554,7 +577,15 @@ $app = angular.module('sicantik_backoffice', [])
 		}
 
 		$scope.close_modal = function(modal_name) {
+
+			$scope.show_all();
+
+			setTimeout(function() {
+				$scope.show_all();
+			}, 100);
+
 			eval("$scope." + modal_name + "= false");
+
 		}
 		
 		/*  Construct Modal Function */
@@ -567,6 +598,13 @@ $app = angular.module('sicantik_backoffice', [])
 			});
 		}
 
+		$scope.modal_edit_submit = function(modal_name){
+
+			$scope.show_all();
+			$scope.close_modal(modal_name);
+
+		}
+
 		/* Prepare Opsi */
 
 		$scope.opsi_propinsi = function(id) {
@@ -574,6 +612,13 @@ $app = angular.module('sicantik_backoffice', [])
 				$scope.opsi_prop = prop;
 			});
 		}
+
+		// $scope.$watch('oprop', function() {
+
+		// 	$http.get('kecamatan/opsi/kabupaten/' + $scope.oprop.id.id ).success(function(kab) {
+		// 		$scope.opsi_kab = kab;
+		// 	});
+		// });
 
 		$scope.opsi_kabupaten = function(id_propinsi, id) {
 			$http.get('kecamatan/opsi/kabupaten/' + id_propinsi + '/' + id).success(function(kab) {
@@ -605,9 +650,13 @@ $app = angular.module('sicantik_backoffice', [])
 
 .controller('KonfigurasiSettingWilayahKelurahanCtrl', ['$scope', '$http', 
 	function ($scope, $http){
-		$http.get('kelurahan/data').success(function(swkl_data){
-			$scope.setting_wilayah_kelurahan = swkl_data;
-		});
+		$scope.show_all = function() {
+			$http.get('kelurahan/data').success(function(swkl_data){
+				$scope.setting_wilayah_kelurahan = swkl_data;
+			});
+		}
+
+		$scope.show_all();
 
 		/* # Filter Data ============================================================================================== */
 
@@ -634,7 +683,15 @@ $app = angular.module('sicantik_backoffice', [])
 		}
 
 		$scope.close_modal = function(modal_name) {
+
+			$scope.show_all();
+
+			setTimeout(function() {
+				$scope.show_all();
+			}, 100);
+
 			eval("$scope." + modal_name + "= false");
+
 		}
 		
 		/*  Construct Modal Function */
@@ -646,6 +703,13 @@ $app = angular.module('sicantik_backoffice', [])
 				$scope.opsi_kabupaten($scope.kelurahan_edit_data.trpropinsi_id, $scope.kelurahan_edit_data.trkabupaten_id);
 				$scope.opsi_kecamatan($scope.kelurahan_edit_data.trkabupaten_id, $scope.kelurahan_edit_data.trkecamatan_id);
 			});
+		}
+
+		$scope.modal_edit_submit = function(modal_name){
+
+			$scope.show_all();
+			$scope.close_modal(modal_name);
+
 		}
 
 		/* Prepare Opsi */

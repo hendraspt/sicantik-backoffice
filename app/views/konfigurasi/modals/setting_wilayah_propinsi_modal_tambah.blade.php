@@ -47,7 +47,7 @@
 
     </form>
 
-        <iframe src="#" id="target_insert" name="target_insert" style="width:0; height:0; position:relative; background:#fff;"></iframe>
+        <iframe src="#" id="target_insert" name="target_insert" style="width:0; height:0; visibility:hidden; position:relative; background:#fff;"></iframe>
 
     </div>
 </div>

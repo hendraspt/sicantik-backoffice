@@ -56,11 +56,17 @@
 			<div class="form-item">
 				&nbsp
 			</div>
-			<div class="form-item wide">
-				<input type="text" placeholder="Search Key">
-			</div>
 			<div class="form-item">
-				<input type="submit" value="Search">
+				<select ng-model="opsi_cari" class="form-option">
+					<option value="$">Semua</option>
+					<option value="n_kecamatan">Nama Kecamatan</option>
+					<option value="n_kabupaten">Nama Kabupaten</option>
+					<option value="n_propinsi">Nama Provinsi</option>
+				</select>
+			</div>
+
+			<div class="form-item wide">
+				<input type="text" placeholder="Kata Kunci" ng-model="search[opsi_cari]">
 			</div>
 		</div>
 	</form>

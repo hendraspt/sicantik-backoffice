@@ -10,6 +10,14 @@
 			return Trkecamatan::get();
 		}
 
+		public static function insert_data($n_kecamatan) {
+			Trkecamatan::create(['n_kecamatan' => $n_kecamatan]);
+			$id_kecamatan = Trkecamatan::where('n_kecamatan', '=', $n_kecamatan) -> get();
+			foreach ($id_kecamatan -> lists('id') as $key => $value) {
+				return $value;
+		}
+	}
+
 		public static function fetch_with_kabupaten_propinsi() {
 			return DB::table('trkecamatan')
 			->join('trkabupaten_trkecamatan', 'trkecamatan.id', '=', 'trkabupaten_trkecamatan.trkecamatan_id')
